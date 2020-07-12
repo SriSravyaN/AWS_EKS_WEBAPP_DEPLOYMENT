@@ -2,7 +2,7 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: sravya-cluster
+  name: sravya1-cluster
   region: ap-south-1
 
 nodeGroups:
@@ -12,5 +12,5 @@ nodeGroups:
     
   - name: nodegrp-2
     instanceType: t2.small
-    desiredCapacity: 2
+    desiredCapacity: 1
     

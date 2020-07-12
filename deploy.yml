@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sravyaweb-deployment
+  labels:
+    app: kubernetes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubernetes
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: kubernetes
+    spec:
+      containers:
+      - image: vimal13/apache-webserver-php
+        name: kubernetes
+        volumeMounts:
+        - name: sravyaweb-persistent-storage
+          mountPath: /var/www/html
+      volumes:
+      - name: sravyaweb-persistent-storage
+        persistentVolumeClaim:
+          claimName: sravya-eks-pvc
